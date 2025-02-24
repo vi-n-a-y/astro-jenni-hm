@@ -1,5 +1,6 @@
-// @ts-check
-import { defineConfig } from 'astro/config';
+// npm install dotenv
+import { defineConfig } from "astro/config";
+import dotenv from "dotenv";
 
-// https://astro.build/config
+dotenv.config(); // Load .env file
 export default defineConfig({});
