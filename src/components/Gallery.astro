@@ -2,7 +2,7 @@
 import axios from "axios";
 
 const GALLERY_API_URL = import.meta.env.VITE_GALLERY_API_URL;
-const BASE_URL = import.meta.env.BASE_URL;
+const BASE_URL = import.meta.env.VITE_BASE_URL;
 
 let galleryData = [];
 
@@ -23,7 +23,11 @@ try {
             item.Image.map(image => (
                 <div class="block" key={`${item.id}-${image.id}`}>
                     <div class="block-inner">
-                        <img class="block-img" src={`http://localhost:1337${image.url}`} alt={item.Name} />
+                            <img 
+                                 class="block-img" 
+                                src={`${BASE_URL}${image.url.startsWith("/") ? image.url : `/${image.url}`}`} 
+                                alt={item.Name} 
+                            />
                         <a href={item.Name} class="block-meta">
                             <span class="name">{item.Name}</span>
                         </a> 
